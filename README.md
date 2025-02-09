@@ -1,6 +1,4 @@
-# Lenguajes de Programación y Código Limpio
-
-# Calculadora de ahorro programado 
+# Calculadora de Ahorro Programado 
 
 La Calculadora de Ahorro Programado va ser una aplicación diseñada para ayudar a los usuarios a planificar sus ahorros de manera eficiente. Permite calcular el monto total ahorrado en un periodo determinado con base en aportes periódicos y una posible tasa de interés.
 
