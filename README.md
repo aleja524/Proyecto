@@ -6,11 +6,11 @@ La Calculadora de Ahorro Programado va ser una aplicación diseñada para ayudar
 # Entradas
 
 El usuario deberá ingresar los siguientes datos:
-Monto inicial: Cantidad con la que se empieza el ahorro (opcional).
+Monto inicial: Cantidad con la que se empieza el ahorro.
 Aporte periódico: Monto a ahorrar en cada período.
 Frecuencia de ahorro: Diario, semanal, quincenal o mensual.
 Número de períodos: Cantidad de períodos a ahorrar.
-Tasa de interés (opcional): Si se desea incluir intereses en el cálculo, se debe ingresar la tasa anual.
+Tasa de interés: Si se desea incluir intereses en el cálculo, se debe ingresar la tasa anual.
 
 # Proceso
 
