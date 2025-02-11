@@ -16,8 +16,11 @@ El usuario deberá ingresar los siguientes datos:
 
 - Si ya se ingresó se toma el monto inicial y se añade el aporte periódico en cada ciclo.
 - Si se incluye una tasa de interés, se calcula el crecimiento del ahorro aplicando la fórmula del interés compuesto o simple según corresponda.
-- Se muestra el crecimiento del ahorro en cada período hasta alcanzar el tiempo especificado por el usuario.
+- Se muestra el crecimiento del ahorro en cada período hasta alcanzar el tiempo especificado por el usuario
 
+  -	Fórmula sin interés:	A = P + (d × n)
+	- Fórmula con interés compuesto:	A = P(1+r)^n + d × ((1+r)^n - 1) / r
+		
 # Salidas
 
 La aplicación mostrará:
