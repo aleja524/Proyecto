@@ -27,6 +27,7 @@ La aplicación mostrará:
 - Tabla de ahorro con el detalle de los montos acumulados en cada período.
 - Monto total ahorrado al final del periodo ingresado.
 - Gráfica opcional que representa el crecimiento del ahorro en el tiempo.
+- Hecho por Kevin silva, Andés Gallego
 
 
 
