@@ -1,4 +1,6 @@
-import logica
+import sys
+sys.path.append("src")
+from model import logica
 #Variables
 monto_inicial = int(input("Ingrese el monto inicial con la que deseas iniciar el ahorro: "))
 aporte_periodico = int(input("Ingresee el valor del aporte por periodos que quiere hacer en el ahorro: "))

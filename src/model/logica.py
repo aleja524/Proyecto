@@ -1,7 +1,4 @@
 # Clases para los casos de error, es donde se pone en los casos que debe sacar excepción
-class monto_inicial( Exception ):
-   """El monto inicial no puede ser inferior a 0"""
-   pass
 
 class aporte_periodico_menor_a_cero( Exception ):
    """El monto de los periodos debe ser mayor de cero"""
@@ -16,6 +13,9 @@ class tasa_interes_negativa(Exception):
     """No puede ser negativa la tasa de intereses """
     pass
 
+class monto_inicial_negativo ( Exception ):
+    """El monto inicial no puede ser negativa"""
+
 
 # casos_pruebas/calculos.py
 def calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico): 
@@ -23,8 +23,8 @@ def calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodic
     if tasa_interes == 0:  # Caso sin interés
         return monto_inicial + (aporte_periodico * numero_periodos)
 
-    if monto_inicial < 0: #Caso con monto inicial menor a cero
-        raise monto_inicial("ERROR: El monto inical no puede ser negativo")
+    if monto_inicial < 0: # Caso con monto inicial menor a cero
+        raise monto_inicial_negativo("ERROR: El monto inicial no puede ser negativo")
     
     if aporte_periodico == 0: #Caso de aporte periodico mayor a cero
         raise aporte_periodico_menor_a_cero("ERROR: El aporte peridico debe ser mayor a 0")
