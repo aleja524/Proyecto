@@ -28,7 +28,7 @@ La aplicación mostrará:
 - Monto total ahorrado al final del periodo ingresado.
 - Gráfica opcional que representa el crecimiento del ahorro en el tiempo.
 # Integrantes
-- Hecho por Kevin silva, Andés Gallego
+- Hecho por Kevin Silva, Andés Gallego
 
 
 
