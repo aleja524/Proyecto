@@ -1,90 +1,84 @@
 # Calculadora de Ahorro Programado 
 
-## ¿Quién hizo esto?
-Este proyecto fue desarrollado por:
-- **Andrés Gallego**
-- **Kevin Silva**
-
-## ¿Qué es y para qué es?
-La **Calculadora de Ahorro Programado** es una aplicación diseñada para ayudar a los usuarios a planificar sus ahorros de manera eficiente. Permite calcular el monto total ahorrado en un periodo determinado con base en aportes periódicos y una posible tasa de interés.
-
-## ¿Cómo lo hago funcionar?
-### Prerrequisitos
-Antes de ejecutar la aplicación, asegúrese de tener instalado:
-- **Python 3.8 o superior**
-- Librerías necesarias (pueden instalarse con `pip`):
-  ```sh
-  pip install matplotlib numpy pandas
-  ```
-
-### Ejecución
-Para ejecutar la aplicación, ubíquese en la carpeta raiz del proyecto y ejecute el siguiente comando:
-```sh
-py src\Console\AhorroCalculator.py
-```
-
-## ¿Cómo está hecho?
-La aplicación está estructurada en diferentes módulos y capas para facilitar su mantenimiento y escalabilidad.
-
-### Arquitectura
-El proyecto sigue una arquitectura modular:
-- **src**: Contiene el código fuente de la aplicación.
-  - **models**: Define las clases y estructuras de datos.
-  - **services**: Implementa la lógica de cálculo del ahorro.
-  - **ui**: Interfaz de usuario (si aplica).
-  - **Console**: Punto de entrada de la aplicación en consola.
-- **tests**: Contiene las pruebas unitarias.
-- **docs**: Documentación del proyecto.
-
-### Dependencias
-El proyecto usa las siguientes bibliotecas:
-- **NumPy**: Para operaciones matemáticas y cálculos.
-- **Pandas**: Para estructurar y manejar los datos.
-- **Matplotlib**: Para generar gráficas del ahorro en el tiempo.
-
-## Uso
-### Ejecutar pruebas unitarias
-Para ejecutar las pruebas unitarias, desde la carpeta raíz, ejecute:
-```sh
-py tests\AhorroTests.py
-```
-Para que las pruebas funcionen correctamente, asegúrese de incluir la siguiente línea al inicio del módulo de pruebas:
-```python
-import sys
-sys.path.insert(0, "./src")
-```
-
-## Cálculo del Ahorro
-### Entradas
-El usuario debe ingresar:
-- **Monto inicial**: Cantidad con la que se empieza el ahorro.
-- **Aporte periódico**: Monto a ahorrar en cada periodo.
-- **Frecuencia de ahorro**: Diario, semanal, quincenal o mensual.
-- **Número de periodos**: Cantidad de periodos a ahorrar.
-- **Tasa de interés anual** (opcional): Para calcular el crecimiento del ahorro.
-
-### Proceso
-- Se suma el aporte periódico en cada ciclo.
-- Si se incluye una tasa de interés, se aplica la fórmula de interés compuesto o simple.
-- Se genera una tabla de ahorro detallada y una gráfica de crecimiento.
-
-### Fórmulas utilizadas
-- **Sin interés**:
-  ```
-  A = P + (d × n)
-  ```
-- **Con interés compuesto**:
-  ```
-  A = P(1+r)^n + d × ((1+r)^n - 1) / r
-  ```
-
-### Salidas
-- **Tabla de ahorro**: Detalle de los montos acumulados en cada periodo.
-- **Monto total**: Total ahorrado al final del periodo.
-- **Gráfica**: Representación visual del crecimiento del ahorro.
+Aquí tienes el **README.md** mejorado, con una sección específica para describir la organización del código y sus dependencias.  
 
 ---
-**Nota:** Para futuras versiones, se planea agregar una interfaz gráfica y soporte para diferentes monedas.
+
+# **Calculadora de Ahorro Programado**  
+
+## **¿Quién hizo esto?**  
+Este proyecto fue desarrollado por **Andrés Gallego y Kevin Silva**.  
+
+## **¿Qué es y para qué es?**  
+La **Calculadora de Ahorro Programado** es una aplicación diseñada para ayudar a los usuarios a planificar sus ahorros de manera eficiente. Permite calcular el monto total ahorrado en un periodo determinado con base en aportes periódicos y una posible tasa de interés.  
+
+## **¿Cómo lo hago funcionar?**  
+
+### **Prerrequisitos**  
+Antes de ejecutar este proyecto, asegúrate de tener instalado:  
+- **Python 3.x**  
+- Las bibliotecas necesarias (si las hubiera, incluir con `pip install ...`)  
+
+### **Ejecución**  
+Para ejecutar la aplicación desde la raíz del proyecto:  
+```sh
+py src/view/consola.py
+```
+
+Para ejecutar las pruebas unitarias:  
+```sh
+py tests/casos.py
+```
+
+---
+
+## **¿Cómo está hecho?**  
+
+### **Arquitectura del Proyecto**  
+El código está organizado en las siguientes carpetas:  
+
+📂 **`src/`** (Código fuente)  
+- 📂 `model/` → Contiene la lógica de la aplicación.  
+  - `logic.py`: Funciones principales para el cálculo del ahorro.  
+  - `more_logic.py`: Funciones adicionales de procesamiento.  
+  - `other_logic.py`: Módulos auxiliares.  
+  - `__init__.py`: Permite que Python reconozca `model` como un paquete.  
+- 📂 `view/` → Interfaz en consola.  
+  - `consola.py`: Punto de entrada para la interacción con el usuario.  
+
+📂 **`tests/`** (Pruebas Unitarias)  
+- `casos.py`: Contiene pruebas unitarias para verificar la lógica de cálculo.  
+- `libro_casos_prueba_ahorro_con_formula...`: Archivo con casos de prueba.  
+
+---
+
+### **Dependencias y Organización de Módulos**  
+
+En el código, los módulos se importan de la siguiente manera:  
+
+- Desde `view/consola.py`, para usar funciones de `model`:
+  ```python
+  from model.logic import alguna_funcion
+  ```
+- Desde `tests/casos.py`, para probar funciones de `logic.py`, primero se añade el directorio `src` a la ruta:
+  ```python
+  import sys
+  import os
+  sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
+  from model.logic import alguna_funcion
+  ```
+
+Esto permite que los módulos se importen correctamente sin importar desde dónde se ejecute el código.  
+
+---
+
+## **Uso**  
+
+Para ejecutar las pruebas unitarias, desde la carpeta raíz, usa:  
+```sh
+py tests/casos.py
+```
 
 
   
