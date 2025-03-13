@@ -43,18 +43,3 @@ def calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodic
     return monto_inicial * (1 + tasa_interes) ** numero_periodos + aporte_periodico * (((1 + tasa_interes) ** numero_periodos - 1) / tasa_interes) #Formula para sacar los resultados del ahorro
 
     
-
-    
-
-
-
-
-
-
-
-
-
-
-
-    
-
