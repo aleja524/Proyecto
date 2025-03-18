@@ -1,7 +1,7 @@
 import sys
 sys.path.append("src")
 import unittest
-from model import logica
+from model import logic
 
 
 
@@ -16,7 +16,7 @@ class CalcularAhorroProgramado(unittest.TestCase):
         aporte_periodico = 500_000
         numero_periodos = 12
         tasa_interes = 0.01
-        resultado = logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        resultado = logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
         esperado = 17_609_502
         self.assertAlmostEqual(esperado, resultado, delta=1)
 
@@ -28,7 +28,7 @@ class CalcularAhorroProgramado(unittest.TestCase):
         numero_periodos = 24
         tasa_interes = 0.015
 
-        resultado = logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        resultado = logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
 
         esperado = 57_223_577
 
@@ -42,7 +42,7 @@ class CalcularAhorroProgramado(unittest.TestCase):
         numero_periodos = 12
         tasa_interes = 0.01
 
-        resultado = logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        resultado = logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
 
         esperado = 8_804_751  
 
@@ -60,7 +60,7 @@ class CalcularAhorroProgramado(unittest.TestCase):
         numero_periodos = 12
         tasa_interes = 0
 
-        resultado = logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        resultado = logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
 
         esperado = 1_600_000
 
@@ -74,7 +74,7 @@ class CalcularAhorroProgramado(unittest.TestCase):
         numero_periodos = 4
         tasa_interes = 0.01
 
-        resultado = logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        resultado = logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
 
         esperado = 2_093_859
 
@@ -89,7 +89,7 @@ class CalcularAhorroProgramado(unittest.TestCase):
         numero_periodos = 12
         tasa_interes = 0.01
 
-        resultado = logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        resultado = logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
 
         esperado = 12_682_503  
 
@@ -106,8 +106,8 @@ class CalcularAhorroProgramado(unittest.TestCase):
         aporte_periodico = 400_000
         numero_periodos = 36
         tasa_interes = 0.01
-        with self.assertRaises(logica.monto_inicial_negativo):
-            logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        with self.assertRaises(logic.monto_inicial_negativo):
+            logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
 
 
      
@@ -117,8 +117,8 @@ class CalcularAhorroProgramado(unittest.TestCase):
         aporte_periodico = 0
         numero_periodos = 25
         tasa_interes = 0.01
-        with self.assertRaises(logica.aporte_periodico_menor_a_cero):
-            logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        with self.assertRaises(logic.aporte_periodico_menor_a_cero):
+            logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
 
 
 
@@ -131,8 +131,8 @@ class CalcularAhorroProgramado(unittest.TestCase):
         aporte_periodico = 16_000_000
         numero_periodos = 200
         tasa_interes = 0.01
-        with self.assertRaises(logica.aporte_periodico_mayor_a_60):
-            logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        with self.assertRaises(logic.aporte_periodico_mayor_a_60):
+            logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
   
 
 
@@ -145,8 +145,8 @@ class CalcularAhorroProgramado(unittest.TestCase):
         aporte_periodico = 500_000
         numero_periodos = 15
         tasa_interes = -1
-        with self.assertRaises(logica.tasa_interes_negativa):
-            logica.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
+        with self.assertRaises(logic.tasa_interes_negativa):
+            logic.calcular_monto(monto_inicial, tasa_interes, numero_periodos, aporte_periodico)
   
 
     
