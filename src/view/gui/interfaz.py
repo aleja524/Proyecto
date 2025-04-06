@@ -18,17 +18,17 @@ class Calculadora_de_ahorro(App):
         self.numero_de_periodos = TextInput() 
         self.aporte_periodico = TextInput()
 
-        contenedor.add_widget(Label(text = "ingresa monto inicial"))
+        contenedor.add_widget(Label(text = "ingresa el monto inicial: "))
         contenedor.add_widget(self.monto_inicial)
 
-        contenedor.add_widget(Label(text = "ingresa tasa de interes"))
-        contenedor.add_widget(self.tasa_de_interes)
+        contenedor.add_widget(Label(text = "ingresa el aporte periodico: "))
+        contenedor.add_widget(self.aporte_periodico)
 
-        contenedor.add_widget(Label(text = "ingrese el numero de periodos en los que desea pagar"))
+        contenedor.add_widget(Label(text = "ingrese el numero de periodos en los que desea pagar: "))
         contenedor.add_widget(self.numero_de_periodos)
 
-        contenedor.add_widget(Label(text = "ingres el aporte periodico"))
-        contenedor.add_widget(self.aporte_periodico)
+        contenedor.add_widget(Label(text = "ingresa la tasa de interes: "))
+        contenedor.add_widget(self.tasa_de_interes)
 
         self.label_del_valor = Label(text="Aqui aparecera el calculo de tu ahorro")
         contenedor.add_widget(self.label_del_valor)
