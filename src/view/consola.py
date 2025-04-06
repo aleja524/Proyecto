@@ -1,6 +1,6 @@
 import sys
 sys.path.append("src")
-from model import logica
+from model import logic
 #Variables
 monto_inicial = int(input("Ingrese el monto inicial con la que deseas iniciar el ahorro: "))
 aporte_periodico = int(input("Ingresee el valor del aporte por periodos que quiere hacer en el ahorro: "))
@@ -9,7 +9,7 @@ tasa_interes = float(input("Ingrese la tasa de intereses que desea pagar en su a
 
 # Acá es donde se llaman la función de logica para hacer el calculo e imprimirlo en pantalla, el round es para redondear el resultado
 try:
-    ahorro = logica.calcular_monto(monto_inicial,tasa_interes,n_periodos,aporte_periodico)
+    ahorro = logic.calcular_monto(monto_inicial,tasa_interes,n_periodos,aporte_periodico)
     print(f"El ahorro final es: {round(ahorro)}")
 
 
