@@ -1,6 +1,8 @@
 import sys
 sys.path.append("src")
 from model.logic import *
+
+
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.button import Button
