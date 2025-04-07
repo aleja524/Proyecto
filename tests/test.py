@@ -7,9 +7,9 @@ from model import logic
 
 class CalcularAhorroProgramado(unittest.TestCase):
 
-      # Casos normales 
-      
-      
+    # Casos normales 
+    
+    
 #En este caso, es un caso normal con intereses   
     def test_intereses_mensual(self):
         monto_inicial = 10_000_000
