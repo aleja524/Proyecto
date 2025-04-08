@@ -1,0 +1,2 @@
+class ErrorFaltaDeDatos(Exception):
+    pass
