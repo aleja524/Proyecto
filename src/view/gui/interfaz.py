@@ -41,10 +41,24 @@ class Calculadora_de_ahorro(App):
         return contenedor
     
     def calcular_ahorro(self, sender):
-        monto_inicial, tasa_de_interes, numero_de_periodos, aporte_periodico = float(self.monto_inicial.text), float(self.tasa_de_interes.text), float(self.numero_de_periodos.text), float(self.aporte_periodico.text)
-        calcular = calcular_monto(monto_inicial, tasa_de_interes, numero_de_periodos, aporte_periodico)
-        resultado = round(calcular)
-        self.label_del_valor.text = str(resultado)
+        try:
+            self.validar_entradas()
+            monto_inicial, tasa_de_interes, numero_de_periodos, aporte_periodico = float(self.monto_inicial.text), float(self.tasa_de_interes.text), float(self.numero_de_periodos.text), float(self.aporte_periodico.text)
+            calcular = calcular_monto(monto_inicial, tasa_de_interes, numero_de_periodos, aporte_periodico)
+            resultado = round(calcular)
+            self.label_del_valor.text = str(resultado)
+        except Exception as exp:
+            self.label_del_valor.text = str(exp)
+    
+    def validar_entradas(self):
+        if not self.monto_inicial.text.isnumeric():
+            raise ErrorFaltaDeDatos("Falta de monto inicial, ingrese un monto inicial mayor a cero")
+        if not self.tasa_de_interes.text.isnumeric():
+            raise ErrorFaltaDeDatos("Falta de tasa de interes, ingrese una tasa de interes mayor a cero")
+        if not self.numero_de_periodos.text.isnumeric():
+            raise ErrorFaltaDeDatos("Falta el numero de periodos, ingrese un numero de periodos mayor a cero")
+        if not self.aporte_periodico.isnumeric():
+            raise ErrorFaltaDeDatos("Falta el aporte periodico, ingrese un aporte periodico mayor a cero")
 
 if __name__ == "__main__":
     Calculadora_de_ahorro().run()
