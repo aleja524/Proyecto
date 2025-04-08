@@ -44,8 +44,7 @@ class Calculadora_de_ahorro(App):
         monto_inicial, tasa_de_interes, numero_de_periodos, aporte_periodico = float(self.monto_inicial.text), float(self.tasa_de_interes.text), float(self.numero_de_periodos.text), float(self.aporte_periodico.text)
         calcular = calcular_monto(monto_inicial, tasa_de_interes, numero_de_periodos, aporte_periodico)
         resultado = round(calcular)
-        format_number = f"{resultado: 2f}"
-        self.label_del_valor.text = str(format_number)
+        self.label_del_valor.text = str(resultado)
 
 if __name__ == "__main__":
     Calculadora_de_ahorro().run()
