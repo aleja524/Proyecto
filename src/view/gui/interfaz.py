@@ -10,6 +10,11 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 
+class ErrorFaltaDeDatos(Exception):
+    def __init__(self, mensaje):
+        super().__init__(mensaje)
+
+
 class Calculadora_de_ahorro(App):
     def build(self):
         contenedor = GridLayout(cols = 2)
@@ -51,14 +56,14 @@ class Calculadora_de_ahorro(App):
             self.label_del_valor.text = str(exp)
     
     def validar_entradas(self):
-        if not self.monto_inicial.text.isnumeric():
+        if not self.monto_inicial.text.replace('.', '', 1).isdigit():
             raise ErrorFaltaDeDatos("Falta de monto inicial, ingrese un monto inicial mayor a cero")
-        if not self.tasa_de_interes.text.isnumeric():
-            raise ErrorFaltaDeDatos("Falta de tasa de interes, ingrese una tasa de interes mayor a cero")
-        if not self.numero_de_periodos.text.isnumeric():
+        if not self.tasa_de_interes.text.replace('.', '', 1).isdigit():
+            raise ErrorFaltaDeDatos("Falta de tasa de interes, ingrese una tasa de interes válida (puede incluir decimales)")
+        if not self.numero_de_periodos.text.isdigit():
             raise ErrorFaltaDeDatos("Falta el numero de periodos, ingrese un numero de periodos mayor a cero")
-        if not self.aporte_periodico.isnumeric():
-            raise ErrorFaltaDeDatos("Falta el aporte periodico, ingrese un aporte periodico mayor a cero")
+        if not self.aporte_periodico.text.replace('.', '', 1).isdigit():
+            raise ErrorFaltaDeDatos("Falta el aporte periodico, ingrese un aporte periodico válido (puede incluir decimales)")
 
 if __name__ == "__main__":
     Calculadora_de_ahorro().run()
