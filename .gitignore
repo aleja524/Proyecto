@@ -2,4 +2,4 @@ __pycache__
 .venv
 build
 dist
-Calculadora_de_ahorro.spec
+*.spec
