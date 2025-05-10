@@ -1,5 +1,7 @@
 import sys
 import os
+from model import model
+
 
 def resource_path(relative_path):
     try:
@@ -11,6 +13,7 @@ def resource_path(relative_path):
 sys.path.append(resource_path("src"))
 
 from model.logic import *  
+
 
 
 from kivy.app import App
