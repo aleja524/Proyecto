@@ -1,9 +1,8 @@
 CREATE TABLE usuarios (
-id_usuario SERIAL PRIMARY KEY,
-nombre VARCHAR(50) NOT NULL,
-apellido VARCHAR(50) NOT NULL,
-documento_identidad VARCHAR(20) NOT NULL UNIQUE,
-correo_electronico VARCHAR(100) NOT NULL UNIQUE,
-telefono VARCHAR(20) NOT NULL,
-fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
+    id SERIAL PRIMARY KEY,
+    nombre TEXT,
+    apellido TEXT,
+    documento_identidad TEXT,
+    correo TEXT,
+    telefono TEXT
 );

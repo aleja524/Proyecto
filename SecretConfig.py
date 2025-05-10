@@ -1,5 +1,3 @@
-# Do not expose your Neon credentials to the browser
-
 PGHOST='ep-tiny-dream-a4pouibw-pooler.us-east-1.aws.neon.tech'
 PGDATABASE='neondb'
 PGUSER='neondb_owner'
