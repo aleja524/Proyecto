@@ -1,6 +1,6 @@
 import sys
 import os
-from model import model
+
 
 
 def resource_path(relative_path):
