@@ -99,17 +99,4 @@ class ControladorUsuarios:
 
     
   
-usuario_encontrado = ControladorUsuarios.BuscarUsuarioPorDocumento(12345678)
-
-if usuario_encontrado:
-    print("🎯 Usuario encontrado:")
-    print(f"Nombre: {usuario_encontrado.nombre}")
-    print(f"Apellido: {usuario_encontrado.apellido}")
-    print(f"Documento: {usuario_encontrado.documento_identidad}")
-    print(f"Correo: {usuario_encontrado.correo}")
-    print(f"Teléfono: {usuario_encontrado.telefono}")
-else:
-    print(" Usuario no encontrado.")
-
-ControladorUsuarios.EliminarUsuarioPorDocumento(1025642892)
-
+ControladorUsuarios.CrearTabla()
