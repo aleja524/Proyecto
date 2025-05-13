@@ -97,6 +97,4 @@ class ControladorUsuarios:
         return None
    
 
-    
-  
-ControladorUsuarios.CrearTabla()
+

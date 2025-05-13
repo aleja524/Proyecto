@@ -62,4 +62,5 @@ class ControladorCalculadora:
         return None
 
 
-ControladorCalculadora.CrearTabla()
+
+
