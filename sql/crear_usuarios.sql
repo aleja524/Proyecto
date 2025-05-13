@@ -1,8 +1,7 @@
 CREATE TABLE usuarios (
-    id SERIAL PRIMARY KEY,
     nombre TEXT,
     apellido TEXT,
-    documento_identidad TEXT,
+    documento_identidad integer primary key,
     correo TEXT,
     telefono TEXT
 );

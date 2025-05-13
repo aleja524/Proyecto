@@ -1,7 +1,7 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
-from controller.controlador import (
+from controller.usuario_controlador import (
     conectar_db, agregar_usuario, agregar_calculadora_ahorro, consultar_usuario_con_ahorros,
     agregar_detalle_ahorro, eliminar_usuario, eliminar_ahorro
 )

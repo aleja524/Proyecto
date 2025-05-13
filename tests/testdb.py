@@ -7,7 +7,7 @@ from unittest.mock import patch, MagicMock
 src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))
 sys.path.append(src_dir)
 
-from controller.controlador import conectar_db
+from controller.usuario_controlador import conectar_db
 from controller.error import agregar_usuario, agregar_ahorro, consultar_usuario, eliminar_usuario
 import SecretConfig
 
