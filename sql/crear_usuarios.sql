@@ -3,5 +3,5 @@ CREATE TABLE usuarios (
     apellido TEXT,
     documento_identidad integer primary key,
     correo TEXT,
-    telefono TEXT
+    telefono BIGINT,
 );

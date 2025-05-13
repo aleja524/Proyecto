@@ -25,7 +25,7 @@ class ControladorUsuarios:
         )
         return conexion.cursor()
 
-  
+    @staticmethod
     def CrearTabla():
         """
         Crea la tabla de usuarios desde archivo SQL
@@ -35,7 +35,7 @@ class ControladorUsuarios:
             cursor.execute(file.read())
         cursor.connection.commit()
 
-
+    @staticmethod
     def EliminarTabla():
         """
         Elimina la tabla de usuarios desde archivo SQL
@@ -45,7 +45,7 @@ class ControladorUsuarios:
             cursor.execute(file.read())
         cursor.connection.commit()
 
-
+    @staticmethod
     def InsertarUsuario(usuario: Usuario):
         """
         Inserta un objeto Usuario en la base de datos
@@ -53,7 +53,7 @@ class ControladorUsuarios:
         cursor = ControladorUsuarios.ObtenerCursor()
         cursor.execute("""
             INSERT INTO usuarios (
-                nombre, apellido, documeto_identidad, correo, telefono
+                nombre, apellido, documento_identidad, correo, telefono
             ) VALUES (%s, %s, %s, %s, %s)
         """, (
             usuario.nombre,
@@ -64,7 +64,7 @@ class ControladorUsuarios:
         ))
         cursor.connection.commit()
 
-
+    @staticmethod
     def BuscarUsuarioPorDocumento(documento_identidad: int):
         """
         Busca un usuario por su documento de identidad
@@ -81,4 +81,5 @@ class ControladorUsuarios:
             return Usuario(*fila)
         return None
    
-ControladorUsuarios.CrearTabla()
+v = Usuario("Juan", "Pérez", 12345678, "a@gmail.com", 987654321)
+ControladorUsuarios.InsertarUsuario(v)
