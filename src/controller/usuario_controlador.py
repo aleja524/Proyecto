@@ -58,14 +58,14 @@ class ControladorUsuarios:
         """, (
             usuario.nombre,
             usuario.apellido,
-            usuario.documeto_identidad,
+            usuario.documento_identidad,
             usuario.correo,
             usuario.telefono
         ))
         cursor.connection.commit()
 
 
-    def BuscarUsuarioPorDocumento(documeto_identidad: int):
+    def BuscarUsuarioPorDocumento(documento_identidad: int):
         """
         Busca un usuario por su documento de identidad
         """
@@ -74,10 +74,11 @@ class ControladorUsuarios:
             SELECT nombre, apellido, documento_identidad, correo, telefono
             FROM usuarios
             WHERE documento_identidad = %s
-        """, (documeto_identidad,))
+        """, (documento_identidad,))
         fila = cursor.fetchone()
 
         if fila:
             return Usuario(*fila)
         return None
    
+ControladorUsuarios.CrearTabla()

@@ -7,7 +7,7 @@ class Usuario:
     def __init__(self, nombre:str, apellido:str, documento_identidad:int, correo:str, telefono: int):
         self.nombre = nombre
         self.apellido = apellido
-        self.documeto_identidad = documento_identidad
+        self.documento_identidad = documento_identidad
         self.correo = correo
         self.telefono = telefono
 
@@ -17,7 +17,7 @@ class Usuario:
         """
         assert( self.nombre == comparar_con.nombre )
         assert( self.apellido == comparar_con.apellido )
-        assert( self.documeto_identidad == comparar_con.documento_identidad )
+        assert( self.documento_identidad == comparar_con.documento_identidad )
         assert( self.correo == comparar_con.correo )
         assert( self.telefono == comparar_con.telefono )
         return True
