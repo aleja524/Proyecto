@@ -55,6 +55,7 @@ class ControladorUsuarios:
             INSERT INTO usuarios (
                 nombre, apellido, documento_identidad, correo, telefono
             ) VALUES (%s, %s, %s, %s, %s)
+            ON CONFLICT (documento_identidad) DO NOTHING                     
         """, (
             usuario.nombre,
             usuario.apellido,
@@ -63,6 +64,20 @@ class ControladorUsuarios:
             usuario.telefono
         ))
         cursor.connection.commit()
+
+
+    @staticmethod
+    def EliminarUsuarioPorDocumento(documento_identidad: int):
+        """
+        Elimina un usuario de la base de datos según su documento de identidad.
+        """
+        cursor = ControladorUsuarios.ObtenerCursor()
+        cursor.execute("""
+            DELETE FROM usuarios WHERE documento_identidad = %s
+        """, (documento_identidad,))
+        cursor.connection.commit()
+    
+
 
     @staticmethod
     def BuscarUsuarioPorDocumento(documento_identidad: int):
@@ -81,5 +96,20 @@ class ControladorUsuarios:
             return Usuario(*fila)
         return None
    
-v = Usuario("Juan", "Pérez", 12345678, "a@gmail.com", 987654321)
-ControladorUsuarios.InsertarUsuario(v)
+
+    
+  
+usuario_encontrado = ControladorUsuarios.BuscarUsuarioPorDocumento(12345678)
+
+if usuario_encontrado:
+    print("🎯 Usuario encontrado:")
+    print(f"Nombre: {usuario_encontrado.nombre}")
+    print(f"Apellido: {usuario_encontrado.apellido}")
+    print(f"Documento: {usuario_encontrado.documento_identidad}")
+    print(f"Correo: {usuario_encontrado.correo}")
+    print(f"Teléfono: {usuario_encontrado.telefono}")
+else:
+    print(" Usuario no encontrado.")
+
+ControladorUsuarios.EliminarUsuarioPorDocumento(1025642892)
+
