@@ -1,109 +1,108 @@
+Calculadora de Ahorro Programado
+¿Qué es y para qué sirve?
+La Calculadora de Ahorro Programado es una aplicación desarrollada para ayudar a los usuarios a planificar sus ahorros de forma eficiente. Permite calcular el monto total ahorrado durante un período determinado, considerando:
 
-# Calculadora de Ahorro Programado
+Aportes periódicos.
 
-## ¿Qué es y para qué es?
+Tasa de interés opcional.
 
-La **Calculadora de Ahorro Programado** es una aplicación diseñada para ayudar a los usuarios a planificar sus ahorros de forma eficiente. Permite calcular el monto total ahorrado durante un período determinado, considerando aportes periódicos y una posible tasa de interés.
+Tiempo de ahorro.
 
-Además, cuenta con manejo de usuarios, controladores y conexión a base de datos en la nube mediante [Neon.tech](https://neon.tech/).
+Además, incluye:
 
----
+Gestión de usuarios.
 
-## ¿Cómo lo hago funcionar?
+Conexión con base de datos en la nube mediante Neon.tech.
 
-### Prerrequisitos
+Interfaces gráfica (GUI) y de consola.
 
-Antes de ejecutar este proyecto, asegúrate de tener instalado:
+Pruebas unitarias.
 
-- Python 3.x
-- Las bibliotecas necesarias (instalables con pip):
+⚙️ ¿Cómo lo hago funcionar?
+🧾 Prerrequisitos
+Python 3.x
 
-```bash
+Dependencias del proyecto:
+
+bash
+Copiar
+Editar
 pip install -r requirements.txt
+Ejecución del proyecto
+Desde la raíz del proyecto:
 
-
-Para ejecutar las pruebas unitarias:  
-```sh
+bash
+Copiar
+Editar
+# Ejecutar pruebas unitarias
 py tests/casos.py
+py tests/test.py
 
+# Interfaz en consola
+py src/view/console/consola.py
 
-Desde la raíz del proyecto, puedes ejecutar:
-  1.Interfaz en consola: py src/view/console/consola.py
+# Interfaz gráfica (Tkinter)
+py src/view/gui/interfaz.py
 
+¿Cómo está hecho?
+📁 Arquitectura del Proyecto
+pgsql
+Copiar
+Editar
+📦 root/
+├── sql/                → Scripts SQL para crear/eliminar tablas.
+│   ├── crear_calculadora.sql
+│   ├── crear_usuarios.sql
+│   ├── eliminar_calculadora.sql
+│   └── eliminar_usuarios.sql
+│
+├── src/
+│   ├── controller/     → Lógica del sistema
+│   │   ├── calculadora_controlador.py
+│   │   └── usuario_controlador.py
+│   │
+│   ├── model/          → Clases y lógica principal
+│   │   ├── calculadora.py
+│   │   ├── errores.py
+│   │   └── logic.py
+│   │
+│   ├── view/
+│   │   ├── console/    → Interfaz de consola
+│   │   │   ├── consola.py
+│   │   │   └── consolacontrolador.py
+│   │   └── gui/        → Interfaz gráfica (Tkinter)
+│   │       ├── interfaz.py
+│   │       └── __init__.py
+│
+├── tests/              → Pruebas unitarias
+│   ├── test.py
+│   └── testdb.py
+🛢️ Base de Datos (PostgreSQL - Neon.tech)
+El proyecto utiliza PostgreSQL en la nube para almacenar usuarios y registros.
 
-  2.Interfaz gráfica (GUI):py src/view/gui/interfaz.py
+Credenciales configuradas en SecretConfig.py (no compartir públicamente).
 
+La conexión y gestión de datos se realiza mediante los controladores definidos.
 
-  3.Pruebas unitarias: py tests/test.py
+🔁 Dependencias y organización de módulos
+Desde consola.py:
 
+python
+Copiar
+Editar
+from model.logic import alguna_funcion
+Desde tests/test.py:
 
-
-```
-
----
-
-## **¿Cómo está hecho?**  
-
-### **Arquitectura del Proyecto**  
-El código está organizado en las siguientes carpetas:  
-
-📂 sql/               → Scripts para crear y eliminar tablas (usuarios, calculadora) en la base de datos.
-📂 src/
- ├── 📂 controller/   → Controladores de la lógica del sistema.
- │     ├── calculadora_controlador.py
- │     └── usuario_controlador.py
- ├── 📂 model/        → Lógica de negocio y clases principales.
- │     ├── calculadora.py
- │     ├── errores.py
- │     ├── logic.py
- │     └── usar.py
- ├── 📂 view/
- │     ├── 📂 console/ → Interfaz en consola.
- │     │     ├── consola.py
- │     │     └── consolacontrolador.py
- │     └── 📂 gui/     → Interfaz gráfica (Tkinter).
- │           └── interfaz.py
- └── __init__.py      → Indica que src es un paquete.
-📂 tests/             → Pruebas unitarias del sistema.
- ├── test.py
- └── testdb.py
-
----
-
-
-**Base de Datos (neon.tech)**
-La aplicación se conecta a una base de datos PostgreSQL alojada en la nube mediante neon.tech.
-
-Los scripts SQL necesarios para crear o eliminar tablas están en la carpeta sql/.
-
-crear_calculadora.sql, crear_usuarios.sql
-
-eliminar_calculadora.sql, eliminar_usuarios.sql
-
-Las credenciales de conexión están configuradas en SecretConfig.py (NO compartas este archivo públicamente).
-
-El proyecto se conecta automáticamente a la base de datos mediante las funciones definidas en los controladores.
-
-
-### **Dependencias y Organización de Módulos**  
-
-Desde consola.py, para usar funciones de la lógica: from model.logic import alguna_funcion
-
-Desde tests/test.py, para importar desde src: import sys
-import os
+python
+Copiar
+Editar
+import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 from model.logic import alguna_funcion
+👨‍💻 Autores
+Este proyecto fue desarrollado por:
 
-Uso
-Ejecuta la calculadora desde consola o interfaz gráfica.
+Andrés Gallego
 
-Registra usuarios y realiza operaciones de ahorro.
-
-Las transacciones y datos quedan guardados en la base de datos en la nube.
-
-¿Quién hizo esto?
-Este proyecto fue desarrollado por Andrés Gallego y Kevin Silva.
- 
-  
- 
+Kevin Silva
 
