@@ -1,22 +1,26 @@
 
-# **Calculadora de Ahorro Programado**  
- 
+# Calculadora de Ahorro Programado
 
-## **¿Qué es y para qué es?**  
-La **Calculadora de Ahorro Programado** es una aplicación diseñada para ayudar a los usuarios a planificar sus ahorros de manera eficiente. Permite calcular el monto total ahorrado en un periodo determinado con base en aportes periódicos y una posible tasa de interés.  
+## ¿Qué es y para qué es?
 
-## **¿Cómo lo hago funcionar?**  
+La **Calculadora de Ahorro Programado** es una aplicación diseñada para ayudar a los usuarios a planificar sus ahorros de forma eficiente. Permite calcular el monto total ahorrado durante un período determinado, considerando aportes periódicos y una posible tasa de interés.
 
-### **Prerrequisitos**  
-Antes de ejecutar este proyecto, asegúrate de tener instalado:  
-- **Python 3.x**  
-- Las bibliotecas necesarias (si las hubiera, incluir con `pip install ...`)  
+Además, cuenta con manejo de usuarios, controladores y conexión a base de datos en la nube mediante [Neon.tech](https://neon.tech/).
 
-### **Ejecución**  
-Para ejecutar la aplicación desde la raíz del proyecto:  
-```sh
-py src/view/consola.py
-```
+---
+
+## ¿Cómo lo hago funcionar?
+
+### Prerrequisitos
+
+Antes de ejecutar este proyecto, asegúrate de tener instalado:
+
+- Python 3.x
+- Las bibliotecas necesarias (instalables con pip):
+
+```bash
+pip install -r requirements.txt
+
 
 Para ejecutar las pruebas unitarias:  
 ```sh
