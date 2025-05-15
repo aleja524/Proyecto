@@ -1,86 +1,108 @@
-# Calculadora de Ahorro Programado 
+Calculadora de Ahorro Programado
+¿Qué es y para qué sirve?
+La Calculadora de Ahorro Programado es una aplicación desarrollada para ayudar a los usuarios a planificar sus ahorros de forma eficiente. Permite calcular el monto total ahorrado durante un período determinado, considerando:
 
-Aquí tienes el **README.md** mejorado, con una sección específica para describir la organización del código y sus dependencias.  
+Aportes periódicos.
 
----
+Tasa de interés opcional.
 
-# **Calculadora de Ahorro Programado**  
+Tiempo de ahorro.
 
-## **¿Quién hizo esto?**  
-Este proyecto fue desarrollado por **Andrés Gallego y Kevin Silva**.  
+Además, incluye:
 
-## **¿Qué es y para qué es?**  
-La **Calculadora de Ahorro Programado** es una aplicación diseñada para ayudar a los usuarios a planificar sus ahorros de manera eficiente. Permite calcular el monto total ahorrado en un periodo determinado con base en aportes periódicos y una posible tasa de interés.  
+Gestión de usuarios.
 
-## **¿Cómo lo hago funcionar?**  
+Conexión con base de datos en la nube mediante Neon.tech.
 
-### **Prerrequisitos**  
-Antes de ejecutar este proyecto, asegúrate de tener instalado:  
-- **Python 3.x**  
-- Las bibliotecas necesarias (si las hubiera, incluir con `pip install ...`)  
+Interfaces gráfica (GUI) y de consola.
 
-### **Ejecución**  
-Para ejecutar la aplicación desde la raíz del proyecto:  
-```sh
-py src/view/consola.py
-```
+Pruebas unitarias.
 
-Para ejecutar las pruebas unitarias:  
-```sh
+⚙️ ¿Cómo lo hago funcionar?
+🧾 Prerrequisitos
+Python 3.x
+
+Dependencias del proyecto:
+
+bash
+Copiar
+Editar
+pip install -r requirements.txt
+Ejecución del proyecto
+Desde la raíz del proyecto:
+
+bash
+Copiar
+Editar
+# Ejecutar pruebas unitarias
 py tests/casos.py
-```
+py tests/test.py
 
----
+# Interfaz en consola
+py src/view/console/consola.py
 
-## **¿Cómo está hecho?**  
+# Interfaz gráfica (Tkinter)
+py src/view/gui/interfaz.py
 
-### **Arquitectura del Proyecto**  
-El código está organizado en las siguientes carpetas:  
+¿Cómo está hecho?
+📁 Arquitectura del Proyecto
+pgsql
+Copiar
+Editar
+📦 root/
+├── sql/                → Scripts SQL para crear/eliminar tablas.
+│   ├── crear_calculadora.sql
+│   ├── crear_usuarios.sql
+│   ├── eliminar_calculadora.sql
+│   └── eliminar_usuarios.sql
+│
+├── src/
+│   ├── controller/     → Lógica del sistema
+│   │   ├── calculadora_controlador.py
+│   │   └── usuario_controlador.py
+│   │
+│   ├── model/          → Clases y lógica principal
+│   │   ├── calculadora.py
+│   │   ├── errores.py
+│   │   └── logic.py
+│   │
+│   ├── view/
+│   │   ├── console/    → Interfaz de consola
+│   │   │   ├── consola.py
+│   │   │   └── consolacontrolador.py
+│   │   └── gui/        → Interfaz gráfica (Tkinter)
+│   │       ├── interfaz.py
+│   │       └── __init__.py
+│
+├── tests/              → Pruebas unitarias
+│   ├── test.py
+│   └── testdb.py
+🛢️ Base de Datos (PostgreSQL - Neon.tech)
+El proyecto utiliza PostgreSQL en la nube para almacenar usuarios y registros.
 
-📂 **`src/`** (Código fuente)  
-- 📂 `model/` → Contiene la lógica de la aplicación.  
-  - `logic.py`: Funciones principales para el cálculo del ahorro.  
-  - `more_logic.py`: Funciones adicionales de procesamiento.  
-  - `other_logic.py`: Módulos auxiliares.  
-  - `__init__.py`: Permite que Python reconozca `model` como un paquete.  
-- 📂 `view/` → Interfaz en consola.  
-  - `consola.py`: Punto de entrada para la interacción con el usuario.  
+Credenciales configuradas en SecretConfig.py (no compartir públicamente).
 
-📂 **`tests/`** (Pruebas Unitarias)  
-- `casos.py`: Contiene pruebas unitarias para verificar la lógica de cálculo.  
-- `libro_casos_prueba_ahorro_con_formula...`: Archivo con casos de prueba.  
+La conexión y gestión de datos se realiza mediante los controladores definidos.
 
----
+🔁 Dependencias y organización de módulos
+Desde consola.py:
 
-### **Dependencias y Organización de Módulos**  
+python
+Copiar
+Editar
+from model.logic import alguna_funcion
+Desde tests/test.py:
 
-En el código, los módulos se importan de la siguiente manera:  
+python
+Copiar
+Editar
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+from model.logic import alguna_funcion
+👨‍💻 Autores
+Este proyecto fue desarrollado por:
 
-- Desde `view/consola.py`, para usar funciones de `model`:
-  ```python
-  from model.logic import alguna_funcion
-  ```
-- Desde `tests/casos.py`, para probar funciones de `logic.py`, primero se añade el directorio `src` a la ruta:
-  ```python
-  import sys
-  import os
-  sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+Andrés Gallego
 
-  from model.logic import alguna_funcion
-  ```
-
-Esto permite que los módulos se importen correctamente sin importar desde dónde se ejecute el código.  
-
----
-
-## **Uso**  
-
-Para ejecutar las pruebas unitarias, desde la carpeta raíz, usa:  
-```sh
-py tests/casos.py
-```
-
-
-  
-
+Kevin Silva
 
