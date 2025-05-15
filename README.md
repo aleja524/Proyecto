@@ -1,13 +1,6 @@
-# Calculadora de Ahorro Programado 
-
-Aquí tienes el **README.md** mejorado, con una sección específica para describir la organización del código y sus dependencias.  
-
----
 
 # **Calculadora de Ahorro Programado**  
-
-## **¿Quién hizo esto?**  
-Este proyecto fue desarrollado por **Andrés Gallego y Kevin Silva**.  
+ 
 
 ## **¿Qué es y para qué es?**  
 La **Calculadora de Ahorro Programado** es una aplicación diseñada para ayudar a los usuarios a planificar sus ahorros de manera eficiente. Permite calcular el monto total ahorrado en un periodo determinado con base en aportes periódicos y una posible tasa de interés.  
@@ -79,7 +72,8 @@ Para ejecutar las pruebas unitarias, desde la carpeta raíz, usa:
 ```sh
 py tests/casos.py
 ```
-
+## **¿Quién hizo esto?**  
+Este proyecto fue desarrollado por **Andrés Gallego y Kevin Silva**. 
 
   
 
