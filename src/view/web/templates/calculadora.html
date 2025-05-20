@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Ahorro Programado</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+    <nav class="bg-yellow-600 text-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Calculadora de Ahorro Programado</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#home" class="hover:text-yellow-200">Inicio</a></li>
+                <li><a href="#about" class="hover:text-yellow-200">Acerca de</a></li>
+                <li><a href="#contact" class="hover:text-yellow-200">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <section class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-xl font-semibold text-orange-600 mb-4">Calcula tu Ahorro Programado</h2>
+            <form method="POST" action="/calculadora" class="space-y-4">
+                <div>
+                    <label for="monto_inicial" class="block text-gray-700">Monto Inicial</label>
+                    <input type="number" step="0.01" name="monto_inicial" id="monto_inicial" required min="0"
+                           class="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
+                           placeholder="Ej: 1000">
+                </div>
+                <div>
+                    <label for="aporte_periodico" class="block text-gray-700">Aporte Periódico</label>
+                    <input type="number" step="0.01" name="aporte_periodico" id="aporte_periodico" required min="0"
+                           class="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
+                           placeholder="Ej: 100">
+                </div>
+                <div>
+                    <label for="n_periodos" class="block text-gray-700">Número de Períodos (meses)</label>
+                    <input type="number" name="n_periodos" id="n_periodos" required min="0"
+                           class="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
+                           placeholder="Ej: 12">
+                </div>
+                <div>
+                    <label for="tasa_interes" class="block text-gray-700">Tasa de Interés (%)</label>
+                    <input type="number" step="0.01" name="tasa_interes" id="tasa_interes" required min="0"
+                           class="w-full border rounded px-3 py-2 focus:outline-none focus:ring"
+                           placeholder="Ej: 5">
+                </div>
+                <button type="submit"
+                        class="w-full bg-yellow-600 text-white py-2 rounded hover:bg-yellow-500 transition">
+                    Calcular
+                </button>
+            </form>
+            {% if result %}
+                <div class="mt-6 p-4 bg-green-100 text-green-800 rounded text-center">
+                    <span class="font-semibold">Ahorro final:</span> {{ result }}
+                </div>
+            {% endif %}
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-6">
+        <div class="container mx-auto px-4 space-y-2 text-sm text-center">
+            <p>&copy; 2023 Calculadora de Ahorro Programado. Todos los derechos reservados.</p>
+            <p>Desarrollado por [Tu Nombre]</p>
+            <p>Versión 1.0 | Licencia: MIT</p>
+            <p>Contacto: +57 300 123 4567 | Dirección: Calle Falsa 123, Ciudad, País</p>
+        </div>
+    </footer>
+</body>
+</html>

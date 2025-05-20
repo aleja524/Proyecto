@@ -1,4 +1,9 @@
-PGHOST='ep-tiny-dream-a4pouibw-pooler.us-east-1.aws.neon.tech'
-PGDATABASE='neondb'
-PGUSER='neondb_owner'
-PGPASSWORD='npg_AvHqTn5PojI0'
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # carga variables de .env
+
+PGHOST     = os.getenv("PGHOST")
+PGDATABASE = os.getenv("PGDATABASE")
+PGUSER     = os.getenv("PGUSER")
+PGPASSWORD = os.getenv("PGPASSWORD")
