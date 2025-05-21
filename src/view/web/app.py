@@ -6,6 +6,7 @@ sys.path.append('src')
 
 from flask import render_template, request
 import model.logic as logic
+from controller.calculadora_controlador import ControladorCalculadora
 
 app = Flask(__name__)
 
@@ -24,6 +25,11 @@ def calculadora():
         result           = round(ahorro, 2)
         return render_template('calculadora.html', result=result)
     return render_template('calculadora.html')
+
+@app.route('/consultar')
+def consultar():
+    registros = ControladorCalculadora.ListarTodos()
+    return render_template('consultar.html', registros=registros)
 
 if __name__ == "__main__":
     app.run(debug=True)

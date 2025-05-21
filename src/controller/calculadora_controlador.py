@@ -10,11 +10,16 @@ class ControladorCalculadora:
 
     @staticmethod
     def ObtenerCursor():
+        host = SecretConfig.PGHOST
+        # extraer endpoint ID antes de "-pooler"
+        endpoint_id = host.split('.')[0].split('-pooler')[0]
         conexion = psycopg2.connect(
-            host=SecretConfig.PGHOST,
+            host=host,
             database=SecretConfig.PGDATABASE,
             user=SecretConfig.PGUSER,
-            password=SecretConfig.PGPASSWORD
+            password=SecretConfig.PGPASSWORD,
+            sslmode="require",
+            options=f"-c endpoint={endpoint_id}"
         )
         return conexion.cursor()
 
@@ -60,7 +65,5 @@ class ControladorCalculadora:
         if fila:
             return CalculadoraAhorro(*fila)
         return None
-
-
 
 

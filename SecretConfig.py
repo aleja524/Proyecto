@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import os
 
-load_dotenv()  # carga variables de .env
+load_dotenv()
 
 PGHOST     = os.getenv("PGHOST")
 PGDATABASE = os.getenv("PGDATABASE")

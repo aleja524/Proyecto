@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Consulta de Ahorros</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="flex flex-col min-h-screen bg-gray-100">
+  <nav class="bg-yellow-600 text-white shadow-md">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Consulta de Ahorros</h1>
+      <ul class="flex space-x-4">
+        <li><a href="/" class="hover:text-yellow-200">Inicio</a></li>
+        <li><a href="/calculadora" class="hover:text-yellow-200">Calcular</a></li>
+        <li><a href="/consultar" class="hover:text-yellow-200">Consulta</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="flex-grow container mx-auto px-4 py-8">
+    <section class="bg-white rounded-lg shadow p-6">
+      <h2 class="text-xl font-semibold text-blue-600 mb-4">Registros de Ahorro Programado</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full table-auto">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="px-4 py-2">Usuario ID</th>
+              <th class="px-4 py-2">Monto Mensual</th>
+              <th class="px-4 py-2">Meses</th>
+              <th class="px-4 py-2">Tasa Interés (%)</th>
+              <th class="px-4 py-2">Total Ahorrado</th>
+              <th class="px-4 py-2">Fecha Creación</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if registros %}
+              {% for r in registros %}
+                <tr class="border-t">
+                  <td class="px-4 py-2">{{ r.id_usuario }}</td>
+                  <td class="px-4 py-2">{{ r.monto_mensual }}</td>
+                  <td class="px-4 py-2">{{ r.meses }}</td>
+                  <td class="px-4 py-2">{{ (r.tasa_interes * 100) | round(2) }}</td>
+                  <td class="px-4 py-2">{{ r.total_ahorrado }}</td>
+                  <td class="px-4 py-2">{{ r.fecha_creacion }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr>
+                <td colspan="6" class="px-4 py-2 text-center text-gray-600">No hay registros disponibles.</td>
+              </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-800 text-gray-300 py-6">
+    <div class="container mx-auto px-4 space-y-2 text-sm text-center">
+      <p>&copy; 2023 Calculadora de Ahorro Programado.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,13 +1,18 @@
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
+
+
+from SecretConfig import PGHOST, PGDATABASE, PGUSER, PGPASSWORD
 import psycopg2 
 import re
 from datetime import datetime
 
-# Configuración de la base de datos
+# Configuración de la base de datos desde SecretConfig
 DB_CONFIG = {
-    "host": "ep-tiny-dream-a4pouibw-pooler.us-east-1.aws.neon.tech",
-    "database": "neondb",
-    "user": "neondb_owner",
-    "password": "npg_AvHqTn5PojI0",
+    "host": PGHOST,
+    "database": PGDATABASE,
+    "user": PGUSER,
+    "password": PGPASSWORD,
     "sslmode": "require"
 }
 
