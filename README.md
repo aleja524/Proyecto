@@ -33,6 +33,8 @@ pip install -r requirements.txt
 
 ### 🏗️ Crear la base de datos
 
+**NOTA:** se debe tener en cuenta que se debe conectar su propia base de datos en blanco para que se ejecute de manera eficiente.
+
 1. Crear una cuenta en [Neon.tech](https://neon.tech) o usar tu servicio de PostgreSQL local.
 2. Crear una base de datos y obtener los siguientes datos:
    - Nombre del host
@@ -44,28 +46,22 @@ pip install -r requirements.txt
 3. Ejecutar los scripts SQL ubicados en la carpeta `sql/`:
    - `crear_usuarios.sql`
    - `crear_calculadora.sql`
-
-Puedes usar una herramienta como DBeaver o pgAdmin para ejecutar los scripts, o directamente desde línea de comandos.
-
 ---
 
-### 🔐 Configurar `secret_config.py`
+### 🔐 Configurar `.env`
 
-El archivo `secret_config.py` debe contener las credenciales necesarias para conectarse a la base de datos. Este archivo no incluye datos privados y debe ser completado por el usuario.
+El archivo `.env` debe contener las credenciales necesarias para conectarse a la base de datos. Este archivo no incluye datos privados y debe ser completado por el usuario.
 
 **Ejemplo de `secret_config.py`:**
 
 ```python
-# secret_config.py
-
-DB_HOST = "tu_host"
-DB_PORT = "5432"
-DB_NAME = "nombre_de_base_de_datos"
-DB_USER = "tu_usuario"
-DB_PASSWORD = "tu_contraseña"
+DB_HOST=Host de la base de datos
+DB_NAME=nombre_de_base_de_datos
+DB_USER=tu_usuario
+DB_PASSWORD=tu_contraseña
 ```
 
-> 🔒 *No subas este archivo a GitHub con tus datos reales. Usa variables de entorno o ignóralo con `.gitignore`.*
+> 🔒 *No subas este archivo a GitHub con tus datos reales. ignóralo con `.gitignore`.*
 
 ---
 
