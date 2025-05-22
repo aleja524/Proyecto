@@ -11,15 +11,13 @@ class ControladorCalculadora:
     @staticmethod
     def ObtenerCursor():
         host = SecretConfig.PGHOST
-        # extraer endpoint ID antes de "-pooler"
-        endpoint_id = host.split('.')[0].split('-pooler')[0]
+        # Se remueve la extracción y el uso de opciones para evitar problemas de SNI
         conexion = psycopg2.connect(
             host=host,
             database=SecretConfig.PGDATABASE,
             user=SecretConfig.PGUSER,
             password=SecretConfig.PGPASSWORD,
-            sslmode="require",
-            options=f"-c endpoint={endpoint_id}"
+            sslmode="require"
         )
         return conexion.cursor()
 
@@ -61,9 +59,22 @@ class ControladorCalculadora:
             FROM calculadora_ahorro
             WHERE id_usuario = %s
         """, (id_usuario,))
-        fila = cursor.fetchone()
-        if fila:
-            return CalculadoraAhorro(*fila)
-        return None
+        # Devolver una lista de objetos CalculadoraAhorro
+        registros = []
+        for fila in cursor.fetchall():
+            registros.append(CalculadoraAhorro(*fila))
+        return registros
+
+    @staticmethod
+    def ListarTodos():
+        cursor = ControladorCalculadora.ObtenerCursor()
+        cursor.execute("""
+            SELECT id_usuario, monto_mensual, meses, tasa_interes, total_ahorrado, fecha_creacion
+            FROM calculadora_ahorro
+        """)
+        registros = []
+        for fila in cursor.fetchall():
+            registros.append(CalculadoraAhorro(*fila))
+        return registros
 
 

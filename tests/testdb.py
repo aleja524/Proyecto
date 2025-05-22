@@ -3,13 +3,23 @@ import os
 import unittest
 from unittest.mock import patch, MagicMock
 
-# Agregar ruta al src para importar el controlador correctamente
-src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src'))
-sys.path.append(src_dir)
+# rutas para que Python encuentre el proyecto raíz y la carpeta src
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 
-from controller.usuario_controlador import conectar_db
+from controller.usuario_controlador import conectar_db, ControladorUsuarios
+from controller.calculadora_controlador import ControladorCalculadora
 from controller.error import agregar_usuario, agregar_ahorro, consultar_usuario, eliminar_usuario
 import SecretConfig
+
+# Crear las tablas necesarias para las pruebas
+def setUpModule():
+    ControladorUsuarios.CrearTabla()
+    ControladorCalculadora.CrearTabla()
+
+def tearDownModule():
+    ControladorUsuarios.EliminarTabla()
+    ControladorCalculadora.EliminarTabla()
 
 class TestConsultarUsuario(unittest.TestCase):
     def test_consultar_usuario_existente(self):

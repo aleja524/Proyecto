@@ -5,7 +5,21 @@ import psycopg2
 import SecretConfig
 from src.model.usuar import *
 
-
+def conectar_db():
+    """
+    Función auxiliar para tests: intenta conectar usando SecretConfig y devuelve la conexión o None.
+    """
+    try:
+        conn = psycopg2.connect(
+            host=SecretConfig.PGHOST,
+            database=SecretConfig.PGDATABASE,
+            user=SecretConfig.PGUSER,
+            password=SecretConfig.PGPASSWORD
+        )
+        conn.autocommit = True
+        return conn
+    except Exception:
+        return None
 
 class ControladorUsuarios:
     """
@@ -95,6 +109,6 @@ class ControladorUsuarios:
         if fila:
             return Usuario(*fila)
         return None
-   
+
 
 

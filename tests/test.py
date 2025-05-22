@@ -1,5 +1,7 @@
 import sys
-sys.path.append("src")
+import os
+# asegurarnos de añadir la carpeta src desde la ubicación de este archivo
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
 import unittest
 from model import logic
 

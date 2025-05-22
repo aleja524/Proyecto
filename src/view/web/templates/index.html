@@ -7,34 +7,41 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="flex flex-col min-h-screen bg-gray-100">
-    <nav class="bg-yellow-600 text-white shadow-md">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Calculadora de Ahorro Programado</h1>
-            <ul class="flex space-x-4">
-                <li><a href="/" class="hover:text-yellow-200">Inicio</a></li>
-                <li><a href="/calculadora" class="hover:text-yellow-200">Calcular</a></li>
+    <nav class="bg-blue-800 text-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Calculadora de Ahorro</h1>
+            <ul class="flex space-x-2 items-center">
+                <li><a href="{{ url_for('index') }}" class="text-white hover:bg-blue-700 rounded-md px-3 py-2 transition-colors duration-150">Inicio</a></li>
+                <li><a href="{{ url_for('calculadora') }}" class="text-white hover:bg-blue-700 rounded-md px-3 py-2 transition-colors duration-150">Calcular</a></li>
+                <li><a href="{{ url_for('consultar') }}" class="text-white hover:bg-blue-700 rounded-md px-3 py-2 transition-colors duration-150">Consulta</a></li>
+                {% if session.user_id %}
+                <li><a href="{{ url_for('logout') }}" class="text-white hover:bg-blue-700 rounded-md px-3 py-2 transition-colors duration-150">Logout ({{ session.user_nombre }})</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}" class="text-white hover:bg-blue-700 rounded-md px-3 py-2 transition-colors duration-150">Login</a></li>
+                <li><a href="{{ url_for('registrar') }}" class="text-white hover:bg-blue-700 rounded-md px-3 py-2 transition-colors duration-150">Registrar</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
 
     <main class="flex-grow container mx-auto px-4 py-8">
-        <section id="home" class="bg-white rounded-lg shadow p-6 mb-8">
-            <h2 class="text-xl md:text-2xl font-semibold text-orange-600 mb-4">Bienvenido a la Calculadora de Ahorro Programado</h2>
-            <p class="text-gray-700">Utiliza nuestra herramienta para calcular tus ahorros programados.</p>
+        <section id="home" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl md:text-3xl font-semibold text-blue-700 mb-4">Bienvenido a la Calculadora de Ahorro</h2>
+            <p class="text-gray-700">Utiliza nuestra herramienta para calcular tus ahorros programados de forma sencilla y eficiente.</p>
             <div class="flex space-x-4 mt-6">
-                <a href="/calculadora"
-                   class="bg-yellow-600 hover:bg-yellow-500 text-white font-semibold py-2 px-4 rounded transition">
+                <a href="{{ url_for('calculadora') }}"
+                   class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-150 shadow">
                    Ir a Calculadora
                 </a>
-                <a href="/consultar"
-                   class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded transition">
+                <a href="{{ url_for('consultar') }}"
+                   class="bg-teal-500 hover:bg-teal-600 text-blue-600 font-semibold py-2 px-4 rounded-md transition-colors duration-150 shadow">
                    Ir a Consulta
                 </a>
             </div>
         </section>
 
-        <section id="about" class="bg-white rounded-lg shadow p-6 mb-8">
-            <h2 class="text-xl md:text-2xl font-semibold text-emerald-600 mb-4">Acerca de</h2>
+        <section id="about" class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl md:text-3xl font-semibold text-blue-700 mb-4">Acerca de</h2>
             <p class="text-gray-700 mb-4">
                 La Calculadora de Ahorro Programado te permite proyectar tus finanzas de forma sencilla
                 y precisa. Con ella podrás definir aportes periódicos, aplicar una tasa de interés opcional
@@ -54,9 +61,9 @@
     <footer class="bg-gray-800 text-gray-300 py-6">
         <div class="container mx-auto px-4 space-y-2 text-sm text-center">
             <p>&copy; 2023 Calculadora de Ahorro Programado. Todos los derechos reservados.</p>
-            <p>Desarrollado por [Tu Nombre]</p>
+            <p>Desarrollado por: Alejandra y Kevin</p>
             <p>Versión 1.0 | Licencia: MIT</p>
-            <p>Contacto: +57 300 123 4567 | Dirección: Calle Falsa 123, Ciudad, País</p>
+            <p>Dirección: Universidad de Medellín.</p>
         </div>
     </footer>
 </body>
