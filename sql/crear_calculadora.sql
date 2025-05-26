@@ -1,5 +1,6 @@
 CREATE TABLE calculadora_ahorro (
-    id_usuario INTEGER PRIMARY KEY,
+    id_calculo SERIAL PRIMARY KEY,
+    id_usuario INTEGER NOT NULL,
     monto_mensual REAL NOT NULL,
     meses INTEGER NOT NULL,
     tasa_interes REAL DEFAULT 0,

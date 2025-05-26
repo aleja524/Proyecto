@@ -1,5 +1,6 @@
 class CalculadoraAhorro:
-    def __init__(self, id_usuario, monto_mensual, meses, tasa_interes, total_ahorrado, fecha_creacion=None):
+    def __init__(self, id_calculo, id_usuario, monto_mensual, meses, tasa_interes, total_ahorrado, fecha_creacion=None):
+        self.id_calculo = id_calculo
         self.id_usuario = id_usuario
         self.monto_mensual = monto_mensual
         self.meses = meses

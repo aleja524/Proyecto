@@ -113,12 +113,14 @@ def calculadora():
 
             id_usuario_actual = session.get('user_id')
             if id_usuario_actual:
+                # id_calculo será SERIAL en la BD
                 calculo_guardar = CalculadoraAhorro(
-                    id_usuario=id_usuario_actual,
-                    monto_mensual=aporte_periodico,
-                    meses=n_periodos,
-                    tasa_interes=tasa_interes,
-                    total_ahorrado=result
+                    None,
+                    id_usuario_actual,
+                    aporte_periodico,
+                    n_periodos,
+                    tasa_interes,
+                    result
                 )
                 try:
                     ControladorCalculadora.InsertarCalculadora(calculo_guardar)

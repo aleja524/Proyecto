@@ -55,11 +55,17 @@ class ControladorCalculadora:
     def BuscarCalculadoraPorUsuario(id_usuario: int):
         cursor = ControladorCalculadora.ObtenerCursor()
         cursor.execute("""
-            SELECT id_usuario, monto_mensual, meses, tasa_interes, total_ahorrado, fecha_creacion
+            SELECT
+                id_calculo,
+                id_usuario,
+                monto_mensual,
+                meses,
+                tasa_interes,
+                total_ahorrado,
+                fecha_creacion
             FROM calculadora_ahorro
             WHERE id_usuario = %s
         """, (id_usuario,))
-        # Devolver una lista de objetos CalculadoraAhorro
         registros = []
         for fila in cursor.fetchall():
             registros.append(CalculadoraAhorro(*fila))
@@ -69,7 +75,14 @@ class ControladorCalculadora:
     def ListarTodos():
         cursor = ControladorCalculadora.ObtenerCursor()
         cursor.execute("""
-            SELECT id_usuario, monto_mensual, meses, tasa_interes, total_ahorrado, fecha_creacion
+            SELECT
+                id_calculo,
+                id_usuario,
+                monto_mensual,
+                meses,
+                tasa_interes,
+                total_ahorrado,
+                fecha_creacion
             FROM calculadora_ahorro
         """)
         registros = []

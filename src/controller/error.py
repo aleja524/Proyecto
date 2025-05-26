@@ -32,5 +32,13 @@ def eliminar_usuario(id_usuario):
     ControladorUsuarios.EliminarUsuarioPorDocumento(id_usuario)
 
 def agregar_ahorro(usuario_id, monto_mensual, meses, tasa_interes, total_ahorrado):
-    calc = CalculadoraAhorro(usuario_id, monto_mensual, meses, tasa_interes, total_ahorrado)
+    # id_calculo será generado por la BD, así que pasamos None primero
+    calc = CalculadoraAhorro(
+        None,
+        usuario_id,
+        monto_mensual,
+        meses,
+        tasa_interes,
+        total_ahorrado
+    )
     ControladorCalculadora.InsertarCalculadora(calc)
