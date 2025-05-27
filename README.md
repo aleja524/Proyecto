@@ -84,8 +84,19 @@ py src/view/gui/interfaz.py
 ### Ejecutar el programa en su aplicacion web
 desde este link a continuacion es posible acceder a la aplicacion web de la calculadora de ahorro programado:
 
+```bash
 https://calculadora-ahorro.onrender.com
+```
+## ¿Como funciona la aplicacion web?
+Al ingresar tenemos la opcion de logiarnos o iniciar sesion si queremos que nuestros datos de ahorros se guarden en una base de datos, ya adentro tenemos la opcion de ir a la calculadora o ir a la consulta donde podemos buscar nuestros datos previamente ingresados, acompañados de una breve descripcion acerca de como funciona la calculadora:
 
+- con su descripcion: "La Calculadora de Ahorro Programado te permite proyectar tus finanzas de forma sencilla y precisa. Con ella podrás definir aportes periódicos, aplicar una tasa de interés opcional y establecer el plazo de ahorro para alcanzar tus metas económicas."
+- con una definicion de variables utililes para el usuario:
+* Aportes periódicos: Personaliza monto y frecuencia de tus depósitos.
+* Tasa de interés: Incluye un porcentaje para maximizar tus rendimientos.
+* Plazo de ahorro: Define el período en meses o años para tu objetivo.
+* Gestión de usuarios: Almacena y recupera perfiles usando Neon.tech en la nube.
+* Interfaces flexibles: Usala desde la consola o mediante una intuitiva GUI con Tkinter. 
 
 
 ## 🧠 Estructura del Proyecto
