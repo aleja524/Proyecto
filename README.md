@@ -31,9 +31,7 @@ pip install -r requirements.txt
 
 ---
 
-### 🏗️ Crear la base de datos
-
-**NOTA:** se debe tener en cuenta que se debe conectar su propia base de datos en blanco para que se ejecute de manera eficiente.
+### 🏗️ Crear la base de datos en blanco
 
 1. Crear una cuenta en [Neon.tech](https://neon.tech) o usar tu servicio de PostgreSQL local.
 2. Crear una base de datos y obtener los siguientes datos:
@@ -82,6 +80,13 @@ py src/view/gui/interfaz.py
 ```
 
 ---
+
+### Ejecutar el programa en su aplicacion web
+desde este link a continuacion es posible acceder a la aplicacion web de la calculadora de ahorro programado:
+
+https://calculadora-ahorro.onrender.com
+
+
 
 ## 🧠 Estructura del Proyecto
 
